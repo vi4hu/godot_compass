@@ -1,14 +1,14 @@
 @tool
 extends EditorPlugin
 
-#var icon = preload("res://addons/health_bar_2d/icon.png")
-#var health_bar_2d = preload("res://addons/health_bar_2d/health_bar_2d.gd")
+var icon = preload("res://addons/compass/icon.png")
+var compass3d = preload("res://addons/compass/entities/compass3d.gd")
 
 func _enter_tree():
-#	add_custom_type("Compass", "Node3d", health_bar_2d, icon)
+	add_custom_type("Compass3D", "Node3D", compass3d, icon)
 	pass
 
 
 func _exit_tree():
-#	remove_custom_type("Compass")
+	remove_custom_type("Compass3D")
 	pass

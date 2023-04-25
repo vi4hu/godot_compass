@@ -1,11 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3sh6amiawooy"]
+[gd_scene load_steps=5 format=3 uid="uid://nuvklwq21yyo"]
 
-[ext_resource type="PackedScene" uid="uid://7welie25owxg" path="res://addons/compass/entities/compass.tscn" id="1_lrawo"]
+[ext_resource type="PackedScene" uid="uid://bqnf7wyu4l4kl" path="res://addons/compass/entities/compass3d.tscn" id="1_lrawo"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0s3kp"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_6g6qb"]
+sky_material = SubResource("ProceduralSkyMaterial_0s3kp")
+
+[sub_resource type="Environment" id="Environment_kog4p"]
+background_mode = 2
+sky = SubResource("Sky_6g6qb")
+tonemap_mode = 2
+glow_enabled = true
 
 [node name="example" type="Node3D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kog4p")
+
 [node name="Camera3d" type="Camera3D" parent="."]
-transform = Transform3D(0.735956, 0, -0.67703, 0, 1, 0, 0.67703, 0, 0.735956, 0, 1.00882, -0.00383484)
+transform = Transform3D(0.883381, 0, 0.468655, 0, 1, 0, -0.468655, 0, 0.883381, 0, 1.00882, -0.00383484)
 current = true
 
 [node name="Compass" parent="Camera3d" node_paths=PackedStringArray("parent") instance=ExtResource("1_lrawo")]
