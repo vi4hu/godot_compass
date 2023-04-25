@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://nuvklwq21yyo"]
+[gd_scene load_steps=6 format=3 uid="uid://nuvklwq21yyo"]
 
-[ext_resource type="PackedScene" uid="uid://bqnf7wyu4l4kl" path="res://addons/compass/entities/compass3d.tscn" id="1_lrawo"]
+[ext_resource type="Script" path="res://addons/compass/entities/compass3d.gd" id="1_8htyy"]
+[ext_resource type="ArrayMesh" uid="uid://15hux57fnk2y" path="res://addons/compass/resources/niddle3d.mesh" id="3_grpev"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0s3kp"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -21,9 +22,11 @@ glow_enabled = true
 environment = SubResource("Environment_kog4p")
 
 [node name="Camera3d" type="Camera3D" parent="."]
-transform = Transform3D(0.883381, 0, 0.468655, 0, 1, 0, -0.468655, 0, 0.883381, 0, 1.00882, -0.00383484)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.477217, -0.004)
 current = true
 
-[node name="Compass" parent="Camera3d" node_paths=PackedStringArray("parent") instance=ExtResource("1_lrawo")]
-transform = Transform3D(0.999986, -0.00178153, -0.00513664, -0.00334084, 0.544011, -0.839071, 0.00428927, 0.839076, 0.543997, -0.407768, -0.201303, -0.837391)
+[node name="Compass3D" type="Node3D" parent="Camera3d" node_paths=PackedStringArray("parent")]
+transform = Transform3D(0.941011, 0.323137, 0.100405, 0, 0.296725, -0.954963, -0.338377, 0.89863, 0.279221, -0.355062, -0.357917, -0.80646)
+script = ExtResource("1_8htyy")
 parent = NodePath("..")
+custom_niddle_resource = ExtResource("3_grpev")
