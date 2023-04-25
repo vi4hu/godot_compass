@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3sh6amiawooy"]
+
+[ext_resource type="PackedScene" uid="uid://7welie25owxg" path="res://addons/compass/entities/compass.tscn" id="1_lrawo"]
+
+[node name="example" type="Node3D"]
+
+[node name="Camera3d" type="Camera3D" parent="."]
+transform = Transform3D(0.735956, 0, -0.67703, 0, 1, 0, 0.67703, 0, 0.735956, 0, 1.00882, -0.00383484)
+current = true
+
+[node name="Compass" parent="Camera3d" node_paths=PackedStringArray("parent") instance=ExtResource("1_lrawo")]
+transform = Transform3D(0.999986, -0.00178153, -0.00513664, -0.00334084, 0.544011, -0.839071, 0.00428927, 0.839076, 0.543997, -0.407768, -0.201303, -0.837391)
+parent = NodePath("..")
