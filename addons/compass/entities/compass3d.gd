@@ -15,7 +15,9 @@ var niddle_res = load("res://addons/compass/resources/niddle3d.mesh")
 var container: MeshInstance3D
 var niddle: MeshInstance3D
 
-func _init():
+
+func _init() -> void:
+	"""Set up the Compass3D meshes in editor/runtime"""
 	container = MeshInstance3D.new()
 	container.name = "Container"
 	container.mesh = container_res
@@ -33,10 +35,12 @@ func _physics_process(delta) -> void:
 
 
 func custom_container_resource_changed(value: ArrayMesh) -> ArrayMesh:
+	"""Sets custom mesh for Compass3D container"""
 	container.mesh = value
 	return value
 
 
 func custom_niddle_resource_changed(value: ArrayMesh) -> ArrayMesh:
+	"""Sets custom mesh for Compass3D niddle"""
 	niddle.mesh = value
 	return value
