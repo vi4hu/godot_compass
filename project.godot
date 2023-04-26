@@ -16,4 +16,4 @@ config/icon="res://icon.svg"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/compass/plugin.cfg")
+enabled=PackedStringArray("res://addons/compass/plugin.cfg", "res://addons/character_camera_3d/plugin.cfg")

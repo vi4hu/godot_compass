@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://nuvklwq21yyo"]
+[gd_scene load_steps=11 format=3 uid="uid://nuvklwq21yyo"]
 
 [ext_resource type="Script" path="res://addons/compass/entities/compass3d.gd" id="1_8htyy"]
+[ext_resource type="Script" path="res://addons/compass/example/camera3d.gd" id="1_hcv1h"]
 [ext_resource type="ArrayMesh" uid="uid://15hux57fnk2y" path="res://addons/compass/resources/niddle3d.mesh" id="3_grpev"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0s3kp"]
@@ -16,17 +17,43 @@ sky = SubResource("Sky_6g6qb")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_estev"]
+albedo_color = Color(0.376471, 0.376471, 0.376471, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_i7qa4"]
+material = SubResource("StandardMaterial3D_estev")
+size = Vector3(5, 0.1, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ovxtk"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_volsi"]
+material = SubResource("StandardMaterial3D_ovxtk")
+size = Vector3(0.1, 1, 0.1)
+
 [node name="example" type="Node3D"]
+
+[node name="DirectionalLight3d" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kog4p")
 
 [node name="Camera3d" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.477217, -0.004)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.777217, 1.236)
 current = true
+script = ExtResource("1_hcv1h")
 
 [node name="Compass3D" type="Node3D" parent="Camera3d" node_paths=PackedStringArray("parent")]
-transform = Transform3D(0.941011, 0.323137, 0.100405, 0, 0.296725, -0.954963, -0.338377, 0.89863, 0.279221, -0.355062, -0.357917, -0.80646)
+transform = Transform3D(0.941011, 0.323137, 0.100405, -0.252039, 0.867328, -0.429208, -0.225777, 0.378582, 0.897608, -0.355062, -0.357917, -0.80646)
 script = ExtResource("1_8htyy")
 parent = NodePath("..")
 custom_niddle_resource = ExtResource("3_grpev")
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_i7qa4")
+
+[node name="NorthPole" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.534477, -2.46763)
+mesh = SubResource("BoxMesh_volsi")
