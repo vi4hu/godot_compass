@@ -1,6 +1,6 @@
 # Godot Compass
 
-> :warning: This is plugin is work in progress
+> :warning: This plugin is work in progress
 
 > :stop_sign: Compass2D Node is not availale at the time
 
@@ -12,7 +12,7 @@ This plugin adds new Compass3D(usable) and Compass2D(not available) Nodes.
 
 ## Usage
 1. Search and add Compass3D/compass2D using Ctrl-A or Add Node button
-2. Assign the Parent property for rotation calculation, Parent is the rotating player node
+2. Assign the Parent property for rotation calculation, **Parent** is the **rotating node**
 
 ### Compass3D
 | Properties | Explaination | Default |
@@ -23,8 +23,9 @@ This plugin adds new Compass3D(usable) and Compass2D(not available) Nodes.
 | Custom Niddle Resource | change niddle mesh | [niddle3d.mesh][l2] |
 
 ### Example
-Check out the given `example.tscn` in [example](./addons/compass/example)
+Check out the given `example.tscn` in [example][l0]
 > use left/right arrow button to rotate camera
 
+[l0]: ./addons/compass/example
 [l1]: ./addons/compass/resources/container3d.mesh
 [l2]: ./addons/compass/resources/niddle3d.mesh
