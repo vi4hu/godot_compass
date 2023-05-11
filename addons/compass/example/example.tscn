@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/compass/entities/compass3d.gd" id="1_8htyy"]
 [ext_resource type="Script" path="res://addons/compass/example/camera3d.gd" id="1_hcv1h"]
-[ext_resource type="ArrayMesh" uid="uid://15hux57fnk2y" path="res://addons/compass/resources/niddle3d.mesh" id="3_grpev"]
+[ext_resource type="Script" path="res://addons/compass/entities/compass2d.gd" id="4_trp6u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0s3kp"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -49,7 +49,13 @@ script = ExtResource("1_hcv1h")
 transform = Transform3D(0.941011, 0.323137, 0.100405, -0.252039, 0.867328, -0.429208, -0.225777, 0.378582, 0.897608, -0.355062, -0.357917, -0.80646)
 script = ExtResource("1_8htyy")
 parent = NodePath("..")
-custom_niddle_resource = ExtResource("3_grpev")
+
+[node name="Compass2D" type="Node2D" parent="Camera3d" node_paths=PackedStringArray("parent")]
+texture_filter = 1
+position = Vector2(998, 503)
+scale = Vector2(2, 2)
+script = ExtResource("4_trp6u")
+parent = NodePath("..")
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_i7qa4")
