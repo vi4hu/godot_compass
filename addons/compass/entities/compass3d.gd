@@ -21,11 +21,17 @@ func _init() -> void:
 	container = MeshInstance3D.new()
 	container.name = "Container"
 	container.mesh = container_res
-	add_child(container)
+	add_child(container, true)
 	niddle = MeshInstance3D.new()
 	niddle.name = "Niddle"
 	niddle.mesh = niddle_res
-	add_child(niddle)
+	add_child(niddle, true)
+
+
+func _ready() -> void:
+	# to debug:
+	if not parent:
+		print("WARNING: Parent(export property) is not set, Compass3D will not work.")
 
 
 func _physics_process(delta) -> void:
