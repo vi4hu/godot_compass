@@ -6,14 +6,15 @@ extends Node3D
 @export var custom_container_resource : ArrayMesh :
 	set (value):
 		custom_container_resource = custom_container_resource_changed(value)
-@export var custom_niddle_resource : ArrayMesh :
+@export var custom_needle_resource : ArrayMesh :
 	set (value):
-		custom_niddle_resource = custom_niddle_resource_changed(value)
+		custom_needle_resource = custom_needle_resource_changed(value)
 
 var container_res = load("res://addons/compass/resources/container3d.mesh")
-var niddle_res = load("res://addons/compass/resources/niddle3d.mesh")
+var needle_res = load("res://addons/compass/resources/needle3d.mesh")
 var container: MeshInstance3D
-var niddle: MeshInstance3D
+var needle: MeshInstance3D
+var _tween: Tween
 
 
 func _init() -> void:
@@ -22,10 +23,10 @@ func _init() -> void:
 	container.name = "Container"
 	container.mesh = container_res
 	add_child(container, true)
-	niddle = MeshInstance3D.new()
-	niddle.name = "Niddle"
-	niddle.mesh = niddle_res
-	add_child(niddle, true)
+	needle = MeshInstance3D.new()
+	needle.name = "needle"
+	needle.mesh = needle_res
+	add_child(needle, true)
 
 
 func _ready() -> void:
@@ -38,8 +39,9 @@ func _ready() -> void:
 func _physics_process(delta) -> void:
 	if parent:
 		var new_rot:float = parent.global_rotation.y - deg_to_rad(north)
-		if Vector3(0, -new_rot, 0) != niddle.get_rotation():
-			niddle.set_rotation(Vector3(0, -new_rot, 0))
+		if Vector3(0, -new_rot, 0) != needle.get_rotation():
+			print(Vector3(0, -new_rot, 0))
+			needle.set_rotation(Vector3(0, -new_rot, 0))
 
 
 func custom_container_resource_changed(value: ArrayMesh) -> ArrayMesh:
@@ -48,7 +50,7 @@ func custom_container_resource_changed(value: ArrayMesh) -> ArrayMesh:
 	return value
 
 
-func custom_niddle_resource_changed(value: ArrayMesh) -> ArrayMesh:
-	"""Sets custom mesh for Compass3D niddle"""
-	niddle.mesh = value
+func custom_needle_resource_changed(value: ArrayMesh) -> ArrayMesh:
+	"""Sets custom mesh for Compass3D needle"""
+	needle.mesh = value
 	return value

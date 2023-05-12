@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqnf7wyu4l4kl"]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="Script" path="res://addons/compass/entities/compass3d.gd" id="1_3qhln"]
 [ext_resource type="ArrayMesh" uid="uid://c4w7x6c6mqj0m" path="res://addons/compass/resources/container3d.mesh" id="2_004jj"]
-[ext_resource type="ArrayMesh" uid="uid://15hux57fnk2y" path="res://addons/compass/resources/niddle3d.mesh" id="3_tcrtv"]
+[ext_resource type="ArrayMesh" uid="uid://15hux57fnk2y" path="res://addons/compass/resources/needle3d.mesh" id="3_tcrtv"]
 
 [node name="Compass" type="Node3D"]
 script = ExtResource("1_3qhln")

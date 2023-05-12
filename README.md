@@ -15,20 +15,20 @@ This plugin adds new Compass3D and Compass2D Nodes.
 ### Compass3D
 | Property | Explaination | Default |
 | --- | --- | --- |
-| North | Sets the north direction (-180, 180) | `0` |
+| North | Sets the north direction (-180, 180) | `0.0` |
 | parent | Rotating Node for calculation | None |
 | Custom Container Resource | change container mesh | [container3d.mesh][l1] |
-| Custom Niddle Resource | change niddle mesh | [niddle3d.mesh][l2] |
+| Custom needle Resource | change needle mesh | [needle3d.mesh][l2] |
 
 ### Compass2D
 | Property | Explaination | Default |
 | --- | --- | --- |
-| North | Sets the north direction (-180, 180)| `0` |
+| North | Sets the north direction (-180, 180)| `0.0` |
 | Mode | condition, which North Vector type to use ("3D", "2D") | `"3D"` |
 | parent | Rotating Node for calculation | None |
 | parent_property_for_current_direction | parent property defining current direction (Mode 2D only) | `global_direction` |
 | Custom Container ImageTexture | change container png | [container2d.png][l3] |
-| Custom Niddle ImageTexture | change niddle png | [niddle2d.png][l4] |
+| Custom needle ImageTexture | change needle png | [needle2d.png][l4] |
 
 ### Example
 Check out the given `example.tscn` in [example][l0]
@@ -36,6 +36,6 @@ Check out the given `example.tscn` in [example][l0]
 
 [l0]: ./addons/compass/example
 [l1]: ./addons/compass/resources/container3d.mesh
-[l2]: ./addons/compass/resources/niddle3d.mesh
+[l2]: ./addons/compass/resources/needle3d.mesh
 [l3]: ./addons/compass/resources/container2d.png
-[l4]: ./addons/compass/resources/niddle2d.png
+[l4]: ./addons/compass/resources/needle2d.png
