@@ -1,8 +1,8 @@
 @tool
 extends Node3D
 
-@export var north:Vector3 = Vector3.FORWARD
-@export var parent:Node
+@export_range(0, 360) var north: int = 0
+@export var parent: Node
 @export var custom_container_resource : ArrayMesh :
 	set (value):
 		custom_container_resource = custom_container_resource_changed(value)
@@ -32,12 +32,14 @@ func _ready() -> void:
 	# to debug:
 	if not parent:
 		print("WARNING: Parent(export property) is not set, Compass3D will not work.")
+		set_physics_process(false)
 
 
 func _physics_process(delta) -> void:
 	if parent:
-		var new_rot:float = parent.global_rotation.y - north.y
-		niddle.set_rotation(Vector3(0, -new_rot, 0))
+		var new_rot:float = parent.global_rotation.y - deg_to_rad(north)
+		if Vector3(0, -new_rot, 0) != niddle.get_rotation():
+			niddle.set_rotation(Vector3(0, -new_rot, 0))
 
 
 func custom_container_resource_changed(value: ArrayMesh) -> ArrayMesh:
