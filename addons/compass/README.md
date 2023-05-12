@@ -1,7 +1,6 @@
 # Godot Compass
 
 > :warning: This plugin is work in progress
-> :warning: Compass2D functionality for 2d games is work in progress
 
 This plugin adds new Compass3D and Compass2D Nodes.
 
@@ -14,21 +13,22 @@ This plugin adds new Compass3D and Compass2D Nodes.
 2. Assign the Parent property for rotation calculation, **Parent** is the **rotating node**
 
 ### Compass3D
-| Properties | Explaination | Default |
+| Property | Explaination | Default |
 | --- | --- | --- |
-| North | Sets the north direction | `Vector3.FORWARD` |
+| North | Sets the north direction (-180, 180) | `0` |
 | parent | Rotating Node for calculation | None |
 | Custom Container Resource | change container mesh | [container3d.mesh][l1] |
 | Custom Niddle Resource | change niddle mesh | [niddle3d.mesh][l2] |
 
 ### Compass2D
-| Properties | Explaination | Default |
+| Property | Explaination | Default |
 | --- | --- | --- |
-| North | Sets the north direction | `Vector3.FORWARD`, `Vector2.UP` |
-| Mode | condition, which North Vector type to use | `"3D"` |
+| North | Sets the north direction (-180, 180)| `0` |
+| Mode | condition, which North Vector type to use ("3D", "2D") | `"3D"` |
 | parent | Rotating Node for calculation | None |
-| Custom Container Resource | change container png | [container2d.png][l3] |
-| Custom Niddle Resource | change niddle png | [niddle2d.png][l4] |
+| parent_property_for_current_direction | parent property defining current direction (Mode 2D only) | `global_direction` |
+| Custom Container ImageTexture | change container png | [container2d.png][l3] |
+| Custom Niddle ImageTexture | change niddle png | [niddle2d.png][l4] |
 
 ### Example
 Check out the given `example.tscn` in [example][l0]
