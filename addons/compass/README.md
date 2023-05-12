@@ -1,30 +1,41 @@
 # Godot Compass
 
-> :warning: This is plugin is work in progress
+> :warning: This plugin is work in progress
+> :warning: Compass2D functionality for 2d games is work in progress
 
-> :stop_sign: Compass2D Node is not availale at the time
-
-This plugin adds new Compass3D(usable) and Compass2D(not available) Nodes.
+This plugin adds new Compass3D and Compass2D Nodes.
 
 ## Installation
 1. Clone this repo or download as zip
-2. Copy the `res://addons/compass` directory to your `res://addons` directory
+2. Copy/Move the `res://addons/compass` directory to your `res://addons` directory
 
 ## Usage
-1. Search and add Compass3D/compass2D using Ctrl-A or Add Node button
-2. Assign the Parent property for rotation calculation, Parent is the rotating player node
+1. Search and add Compass3D/Compass2D using Ctrl-A or Add Node button
+2. Assign the Parent property for rotation calculation, **Parent** is the **rotating node**
 
 ### Compass3D
 | Properties | Explaination | Default |
 | --- | --- | --- |
-| North | Sets the north direction | Vector3.FORWARD |
+| North | Sets the north direction | `Vector3.FORWARD` |
 | parent | Rotating Node for calculation | None |
 | Custom Container Resource | change container mesh | [container3d.mesh][l1] |
 | Custom Niddle Resource | change niddle mesh | [niddle3d.mesh][l2] |
 
+### Compass2D
+| Properties | Explaination | Default |
+| --- | --- | --- |
+| North | Sets the north direction | `Vector3.FORWARD`, `Vector2.UP` |
+| Mode | condition, which North Vector type to use | `"3D"` |
+| parent | Rotating Node for calculation | None |
+| Custom Container Resource | change container png | [container2d.png][l3] |
+| Custom Niddle Resource | change niddle png | [niddle2d.png][l4] |
+
 ### Example
-Check out the given `example.tscn` in [example](./addons/compass/example)
+Check out the given `example.tscn` in [example][l0]
 > use left/right arrow button to rotate camera
 
+[l0]: ./addons/compass/example
 [l1]: ./addons/compass/resources/container3d.mesh
 [l2]: ./addons/compass/resources/niddle3d.mesh
+[l3]: ./addons/compass/resources/container2d.png
+[l4]: ./addons/compass/resources/niddle2d.png
