@@ -40,7 +40,6 @@ func _physics_process(delta) -> void:
 	if parent:
 		var new_rot:float = parent.global_rotation.y - deg_to_rad(north)
 		if Vector3(0, -new_rot, 0) != needle.get_rotation():
-			print(Vector3(0, -new_rot, 0))
 			needle.set_rotation(Vector3(0, -new_rot, 0))
 
 
