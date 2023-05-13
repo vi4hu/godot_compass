@@ -1,4 +1,7 @@
 # Change Log
+## 0.2.1 - 2023-05-13
+- fixed gitattribute
+
 ## 0.2.0 - 2023-05-12
 - Compass2D for 2d/3d usage
 - Fixed north calculation
