@@ -5,6 +5,10 @@
 This plugin adds new Compass3D and Compass2D Nodes in Editor.
 
 ## Installation
+#### Method One:
+1.  Search "Godot Compass" in the AssetLib
+2.  Download and Install
+#### Method Two:
 1. Clone this repo or download as zip
 2. Copy/Move the `res://addons/compass` directory to your `res://addons` directory
 
@@ -17,7 +21,7 @@ Note: To use Compass2D for 2d games you need to provide the `parent_property_for
 ### Compass3D
 | Property | Explaination | Default |
 | --- | --- | --- |
-| North | Sets the north direction (-180, 180) | `0.0` |
+| North | Sets the north direction (-180, 180) | `0` |
 | parent | Rotating Node for calculation | None |
 | Custom Container Resource | change container mesh | [container3d.mesh][l1] |
 | Custom needle Resource | change needle mesh | [needle3d.mesh][l2] |
@@ -25,7 +29,7 @@ Note: To use Compass2D for 2d games you need to provide the `parent_property_for
 ### Compass2D
 | Property | Explaination | Default |
 | --- | --- | --- |
-| North | Sets the north direction (-180, 180)| `0.0` |
+| North | Sets the north direction (-180, 180)| `0` |
 | Mode | condition, which North Vector type to use ("3D", "2D") | `"3D"` |
 | parent | Rotating Node for calculation | None |
 | parent_property_for_current_direction | parent property defining current direction (Mode 2D only) | `global_rotation` |
