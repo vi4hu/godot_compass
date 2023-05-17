@@ -11,6 +11,7 @@ extends Node2D
 @export var custom_needle_resource : ImageTexture :
 	set (value):
 		custom_needle_resource = custom_needle_resource_changed(value)
+@export_range(0.01, 0.5) var _lerp_speed: float = 0.1
 
 var container_res = load("res://addons/compass/resources/container2d.png")
 var needle_res = load("res://addons/compass/resources/needle2d.png")
@@ -48,7 +49,7 @@ func _physics_process(delta) -> void:
 			
 				var new_rot: float = parent.global_rotation.y - deg_to_rad(north)
 				if new_rot != needle.get_rotation():
-					needle.set_rotation(new_rot)
+					needle.rotation = lerp_angle(needle.rotation, new_rot, _lerp_speed)
 			"2D":
 				if not parent.get(parent_property_for_current_direction) is float:
 					set_physics_process(false)
@@ -57,7 +58,7 @@ func _physics_process(delta) -> void:
 				
 				var new_rot: float = -parent.get(parent_property_for_current_direction) + deg_to_rad(north)
 				if new_rot != needle.get_rotation():
-					needle.set_rotation(new_rot)
+					needle.rotation = lerp_angle(needle.rotation, -new_rot, _lerp_speed)
 
 
 func custom_container_resource_changed(value: ImageTexture) -> ImageTexture:

@@ -1,6 +1,12 @@
 # Change Log
+## 0.3.0 - 2023-05-17
+- Introduced lerp for smooth needle rotation
+
+## 0.2.2 - 2023-05-17
+- Fixed and tested Compass2D for 2D games
+
 ## 0.2.1 - 2023-05-13
-- fixed gitattribute
+- Fixed gitattribute
 
 ## 0.2.0 - 2023-05-12
 - Compass2D for 2d/3d usage

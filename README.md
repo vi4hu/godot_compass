@@ -25,16 +25,18 @@ Note: To use Compass2D for 2d games you need to provide the `parent_property_for
 | parent | Rotating Node for calculation | None |
 | Custom Container Resource | change container mesh | [container3d.mesh][l1] |
 | Custom needle Resource | change needle mesh | [needle3d.mesh][l2] |
+| Lerp Speed | Smoothing (0.01, 0.5) | `0.1` |
 
 ### Compass2D
 | Property | Explaination | Default |
 | --- | --- | --- |
 | North | Sets the north direction (-180, 180)| `0` |
-| Mode | condition, which North Vector type to use ("3D", "2D") | `"3D"` |
+| Mode | condition, which North Vector type to use ["3D", "2D"] | `"3D"` |
 | parent | Rotating Node for calculation | None |
 | parent_property_for_current_direction | parent property defining current direction (Mode 2D only) | `global_rotation` |
 | Custom Container ImageTexture | change container png | [container2d.png][l3] |
 | Custom needle ImageTexture | change needle png | [needle2d.png][l4] |
+| Lerp Speed | Smoothing (0.01, 0.5) | `0.1` |
 
 ### Example
 ![media](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjMwYzFiY2UzZDRkYjAwMTIwOGJiN2FlZmM4M2IwMjgxM2Q1OWJiOCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/Ok4Er4t1jwnU6POXm7/giphy.gif)
