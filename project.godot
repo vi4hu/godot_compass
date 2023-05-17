@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="compass"
-config/features=PackedStringArray("4.0", "Vulkan Clustered")
+config/features=PackedStringArray("4.0")
 config/icon="res://icon.svg"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/compass/plugin.cfg", "res://addons/character_camera_3d/plugin.cfg")
+enabled=PackedStringArray("res://addons/compass/plugin.cfg")

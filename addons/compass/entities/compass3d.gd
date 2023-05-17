@@ -1,7 +1,7 @@
 @tool
 extends Node3D
 
-@export_range(0, 360) var north: int = 0
+@export_range(-180, 180) var north: int = 0
 @export var parent: Node
 @export var custom_container_resource : ArrayMesh :
 	set (value):
@@ -30,7 +30,6 @@ func _init() -> void:
 
 
 func _ready() -> void:
-	# to debug:
 	if not parent:
 		print("WARNING: Parent(export property) is not set, Compass3D will not work.")
 		set_physics_process(false)
@@ -38,6 +37,10 @@ func _ready() -> void:
 
 func _physics_process(delta) -> void:
 	if parent:
+		if not parent.global_rotation is Vector3:
+			set_physics_process(false)
+			print("WARNING: Parent Property for rotation doesn't have valid type, requires Vector3.")
+			return
 		var new_rot:float = parent.global_rotation.y - deg_to_rad(north)
 		if Vector3(0, -new_rot, 0) != needle.get_rotation():
 			needle.set_rotation(Vector3(0, -new_rot, 0))

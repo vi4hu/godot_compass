@@ -1,7 +1,7 @@
 @tool
 extends Node2D
 
-@export_range(0, 360) var north: int = 0
+@export_range(-180, 180) var north: int = 0
 @export_enum("3D", "2D") var mode: String = "3D"
 @export var parent:Node
 @export var parent_property_for_current_direction: String = "global_rotation"
@@ -18,8 +18,9 @@ var container: Sprite2D
 var needle: Sprite2D
 var _tween: Tween
 
+
 func _init() -> void:
-	"""Set up the Compass3D meshes in editor/runtime"""
+	"""Set up the Compass2D Textures in editor/runtime"""
 	container = Sprite2D.new()
 	container.name = "Container"
 	container.texture = container_res
@@ -31,9 +32,8 @@ func _init() -> void:
 
 
 func _ready() -> void:
-	# to debug:
 	if not parent:
-		print("WARNING: Parent(export property) is not set, Compass2d will not work.")
+		print("WARNING: Parent(export property) is not set, Compass2D will not work.")
 		set_physics_process(false)
 
 
@@ -41,16 +41,21 @@ func _physics_process(delta) -> void:
 	if parent:
 		match mode:
 			"3D":
+				if not parent.global_rotation is Vector3:
+					set_physics_process(false)
+					print("WARNING: Parent Property for rotation doesn't have valid type, requires Vector3 for mode 3D.")
+					return
+			
 				var new_rot: float = parent.global_rotation.y - deg_to_rad(north)
 				if new_rot != needle.get_rotation():
 					needle.set_rotation(new_rot)
 			"2D":
 				if not parent.get(parent_property_for_current_direction) is float:
 					set_physics_process(false)
-					print("WARNING: Parent Property for current direction doesn't have valid type, requires float.")
+					print("WARNING: Parent Property for current direction doesn't have valid type, requires float for mode 2D.")
 					return
 				
-				var new_rot: float = parent.get(parent_property_for_current_direction) - deg_to_rad(north)
+				var new_rot: float = -parent.get(parent_property_for_current_direction) + deg_to_rad(north)
 				if new_rot != needle.get_rotation():
 					needle.set_rotation(new_rot)
 

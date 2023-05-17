@@ -8,7 +8,7 @@ This plugin adds new Compass3D and Compass2D Nodes in Editor.
 #### Method One:
 1.  Search "Godot Compass" in the AssetLib
 2.  Download and Install
-#### Method Two
+#### Method Two:
 1. Clone this repo or download as zip
 2. Copy/Move the `res://addons/compass` directory to your `res://addons` directory
 

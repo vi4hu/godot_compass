@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcfjmx2ny2mle"]
+
+[ext_resource type="Script" path="res://addons/compass/example/player.gd" id="1_ptr3k"]
+[ext_resource type="Script" path="res://addons/compass/entities/compass2d.gd" id="2_gaay4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g88fw"]
+
+[node name="Node2D" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [341.0]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(560, 336)
+up_direction = Vector2(1, 0)
+script = ExtResource("1_ptr3k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_g88fw")
+
+[node name="Polygon2D" type="Polygon2D" parent="CharacterBody2D"]
+color = Color(0.529412, 0.513726, 0.717647, 1)
+polygon = PackedVector2Array(2, -10, 0, -24, -2, -10, -10, 0, 0, 11, 10, 0)
+
+[node name="Compass2D" type="Node2D" parent="." node_paths=PackedStringArray("parent")]
+position = Vector2(980, 405)
+scale = Vector2(2, 2)
+script = ExtResource("2_gaay4")
+north = 90
+mode = "2D"
+parent = NodePath("../CharacterBody2D")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 485.0
+offset_top = 223.0
+offset_right = 637.0
+offset_bottom = 249.0
+text = "Use Q or E to rotate"
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-58, -6)
+color = Color(0.894118, 0, 0.164706, 1)
+polygon = PackedVector2Array(826, 335, 826, 348, 841, 348, 841, 335)
