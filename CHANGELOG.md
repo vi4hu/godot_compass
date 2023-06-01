@@ -1,4 +1,7 @@
 # Change Log
+## 0.4.0 - 2023-06-01
+- Introduced New CompassBar node
+
 ## 0.3.0 - 2023-05-17
 - Introduced lerp for smooth needle rotation
 
