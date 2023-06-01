@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjpovgx86rfb0"]
+
+[ext_resource type="Material" uid="uid://eu6lh0fr601x" path="res://addons/compass/resources/compassbar.material" id="1_84jps"]
+[ext_resource type="Texture2D" uid="uid://bg5fxjgjk8nfg" path="res://addons/compass/resources/compassbar.png" id="2_advvr"]
+[ext_resource type="Script" path="res://addons/compass/entities/compassbar.gd" id="2_q37u0"]
+
+[node name="Compassbar" type="TextureRect"]
+texture_repeat = 2
+material = ExtResource("1_84jps")
+offset_right = 96.0
+offset_bottom = 15.0
+texture = ExtResource("2_advvr")
+stretch_mode = 3
+script = ExtResource("2_q37u0")
