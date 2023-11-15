@@ -88,6 +88,7 @@ texture = ExtResource("5_lbo08")
 stretch_mode = 3
 script = ExtResource("6_ikwdp")
 parent = NodePath("../..")
+parent_property_for_current_direction = "global_rotation"
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_i7qa4")
