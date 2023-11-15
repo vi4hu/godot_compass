@@ -28,6 +28,7 @@ polygon = PackedVector2Array(2, -10, 0, -24, -2, -10, -10, 0, 0, 11, 10, 0)
 position = Vector2(980, 405)
 scale = Vector2(2, 2)
 script = ExtResource("2_gaay4")
+north = 90
 mode = "2D"
 parent = NodePath("../CharacterBody2D")
 
