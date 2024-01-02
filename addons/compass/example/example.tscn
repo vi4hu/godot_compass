@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://nuvklwq21yyo"]
+[gd_scene load_steps=17 format=3 uid="uid://nuvklwq21yyo"]
 
 [ext_resource type="Script" path="res://addons/compass/entities/compass3d.gd" id="1_8htyy"]
-[ext_resource type="Script" path="res://addons/compass/example/camera3d.gd" id="1_hcv1h"]
+[ext_resource type="Script" path="res://addons/compass/example/player.gd" id="1_r7kle"]
 [ext_resource type="Script" path="res://addons/compass/entities/compass2d.gd" id="4_trp6u"]
-[ext_resource type="Texture2D" uid="uid://dwfilxc0fnhmr" path="res://icon.svg" id="5_7s0cs"]
 [ext_resource type="Material" uid="uid://eu6lh0fr601x" path="res://addons/compass/resources/compassbar.material" id="5_h3uew"]
 [ext_resource type="Texture2D" uid="uid://bg5fxjgjk8nfg" path="res://addons/compass/resources/compassbar.png" id="5_lbo08"]
 [ext_resource type="Script" path="res://addons/compass/entities/compassbar.gd" id="6_ikwdp"]
@@ -26,14 +25,21 @@ albedo_color = Color(0.376471, 0.376471, 0.376471, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_i7qa4"]
 material = SubResource("StandardMaterial3D_estev")
-size = Vector3(5, 0.1, 5)
+size = Vector3(20, 0.5, 20)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ovxtk"]
-albedo_color = Color(1, 0, 0, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8vxuu"]
+albedo_color = Color(0.647059, 0.0862745, 0.176471, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_volsi"]
-material = SubResource("StandardMaterial3D_ovxtk")
-size = Vector3(0.1, 1, 0.1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n3v15"]
+albedo_color = Color(0.776471, 0.121569, 0.223529, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3gfc8"]
+albedo_color = Color(0.34902, 0.352941, 0.333333, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_a4e7q"]
+data = PackedVector3Array(-10, 0.25, 10, 10, 0.25, 10, -10, -0.25, 10, 10, 0.25, 10, 10, -0.25, 10, -10, -0.25, 10, 10, 0.25, -10, -10, 0.25, -10, 10, -0.25, -10, -10, 0.25, -10, -10, -0.25, -10, 10, -0.25, -10, 10, 0.25, 10, 10, 0.25, -10, 10, -0.25, 10, 10, 0.25, -10, 10, -0.25, -10, 10, -0.25, 10, -10, 0.25, -10, -10, 0.25, 10, -10, -0.25, -10, -10, 0.25, 10, -10, -0.25, 10, -10, -0.25, -10, 10, 0.25, 10, -10, 0.25, 10, 10, 0.25, -10, -10, 0.25, 10, -10, 0.25, -10, 10, 0.25, -10, -10, -0.25, 10, 10, -0.25, 10, -10, -0.25, -10, 10, -0.25, 10, 10, -0.25, -10, -10, -0.25, -10)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_axhua"]
 
 [node name="example" type="Node3D"]
 
@@ -44,24 +50,71 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_kog4p")
 
-[node name="Camera3d" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.777217, 1.236)
+[node name="Ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_i7qa4")
+
+[node name="NorthPole" type="CSGCombiner3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.534477, -2.46763)
+
+[node name="NorthArrow" type="CSGBox3D" parent="Ground/NorthPole"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0780029, 0.197979, 0.444788)
+size = Vector3(0.147705, 1, 1)
+material = SubResource("StandardMaterial3D_8vxuu")
+
+[node name="UNorthArrow" type="CSGBox3D" parent="Ground/NorthPole"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, -0.0582581, 0.865977, -0.0772014)
+operation = 2
+size = Vector3(0.467224, 1, 1)
+material = SubResource("StandardMaterial3D_n3v15")
+
+[node name="LNorthArrow" type="CSGBox3D" parent="Ground/NorthPole"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0.0661879, -0.529636, -0.0772014)
+operation = 2
+size = Vector3(0.538757, 1, 1)
+material = SubResource("StandardMaterial3D_n3v15")
+
+[node name="NorthPole2" type="CSGCombiner3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0.93588, -0.539518)
+
+[node name="SouthArrow" type="CSGBox3D" parent="Ground/NorthPole2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0780029, 0.197979, 0.444788)
+size = Vector3(0.147705, 1, 1)
+material = SubResource("StandardMaterial3D_3gfc8")
+
+[node name="USouthArrow" type="CSGBox3D" parent="Ground/NorthPole2"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, -0.0582581, 0.865977, -0.0772014)
+operation = 2
+size = Vector3(0.467224, 1, 1)
+material = SubResource("StandardMaterial3D_3gfc8")
+
+[node name="LSouthArrow" type="CSGBox3D" parent="Ground/NorthPole2"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0.0661879, -0.529636, -0.0772014)
+operation = 2
+size = Vector3(0.538757, 1, 1)
+material = SubResource("StandardMaterial3D_3gfc8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_a4e7q")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(0.820701, 0, -0.571358, 0, 1, 0, 0.571358, 0, 0.820701, -1.45661, 1.50343, 1.24644)
+script = ExtResource("1_r7kle")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_axhua")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.233992, 0)
 current = true
-script = ExtResource("1_hcv1h")
 
-[node name="Compass3D" type="Node3D" parent="Camera3d" node_paths=PackedStringArray("parent")]
-transform = Transform3D(0.941011, 0.323137, 0.100405, -0.252039, 0.867328, -0.429207, -0.225777, 0.378582, 0.897608, -0.551569, -0.455428, -1.04613)
+[node name="Compass3D" type="Node3D" parent="Player/Camera3D" node_paths=PackedStringArray("parent")]
+transform = Transform3D(0.418069, 0.214492, 0.170914, -0.152295, 0.440696, -0.180537, -0.22809, 0.0988948, 0.433814, -0.535786, -0.426706, -0.762535)
 script = ExtResource("1_8htyy")
-parent = NodePath("..")
+parent = NodePath("../..")
 
-[node name="Compass2D" type="Node2D" parent="Camera3d" node_paths=PackedStringArray("parent")]
-texture_filter = 1
-position = Vector2(998, 503)
-scale = Vector2(2, 2)
-script = ExtResource("4_trp6u")
-parent = NodePath("..")
-
-[node name="CenterContainer" type="CenterContainer" parent="Camera3d"]
+[node name="CenterContainer" type="CenterContainer" parent="Player"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -72,14 +125,13 @@ offset_bottom = 66.0
 grow_horizontal = 2
 scale = Vector2(2, 2)
 
-[node name="TextureRect" type="Sprite2D" parent="Camera3d/CenterContainer"]
+[node name="Pointer" type="Polygon2D" parent="Player/CenterContainer"]
 modulate = Color(0.0784314, 0.0784314, 0.0784314, 1)
 position = Vector2(48.5, -3)
-texture = ExtResource("5_7s0cs")
-region_enabled = true
-region_rect = Rect2(63.9976, 72.1607, 1.00239, 4.83927)
+color = Color(0.14902, 0.14902, 0.14902, 1)
+polygon = PackedVector2Array(0, 0, -3, -4, 3, -4)
 
-[node name="CompassBar" type="TextureRect" parent="Camera3d/CenterContainer" node_paths=PackedStringArray("parent")]
+[node name="CompassBar" type="TextureRect" parent="Player/CenterContainer" node_paths=PackedStringArray("parent")]
 texture_filter = 1
 texture_repeat = 2
 material = ExtResource("5_h3uew")
@@ -88,11 +140,10 @@ texture = ExtResource("5_lbo08")
 stretch_mode = 3
 script = ExtResource("6_ikwdp")
 parent = NodePath("../..")
-parent_property_for_current_direction = "global_rotation"
 
-[node name="Ground" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_i7qa4")
-
-[node name="NorthPole" type="MeshInstance3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.534477, -2.46763)
-mesh = SubResource("BoxMesh_volsi")
+[node name="Compass2D" type="Node2D" parent="Player" node_paths=PackedStringArray("parent")]
+texture_filter = 1
+position = Vector2(998, 503)
+scale = Vector2(2, 2)
+script = ExtResource("4_trp6u")
+parent = NodePath("..")
