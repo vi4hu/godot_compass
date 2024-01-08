@@ -41,7 +41,7 @@ Property | Explanation | Default |
 | Custom Container Resource | change container mesh | [container3d.mesh][l1] |
 | Custom needle Resource | change needle mesh | [needle3d.mesh][l2] |
 | Lerp Speed | Smoothing (0.01, 0.5) | `0.1` |
-| Rotate Container | Check to Rotates Container instead of Needle | `false` |
+| Rotate Container | Check to Rotate Container instead of Needle | `false` |
 
 ### Compass2D
 
@@ -54,7 +54,7 @@ Property | Explanation | Default |
 | Custom Container ImageTexture | change container png | [container2d.png][l3] |
 | Custom needle ImageTexture | change needle png | [needle2d.png][l4] |
 | Lerp Speed | Smoothing (0.01, 0.5) | `0.1` |
-| Rotate Container | Check to rotates Container instead of Needle | `false` |
+| Rotate Container | Check to rotate Container instead of Needle | `false` |
 
 ### Example
 ![media](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjgyNzBjNTM2M2ZjYzRjZDc3ZDIwNTRmYTQ4NDYzYjUwNjJjNGEzZCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/bvR3MilNYVsjbbTb7x/giphy.gif)
