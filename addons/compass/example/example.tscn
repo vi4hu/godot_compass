@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://nuvklwq21yyo"]
+[gd_scene load_steps=19 format=3 uid="uid://nuvklwq21yyo"]
 
 [ext_resource type="Script" path="res://addons/compass/entities/compass3d.gd" id="1_8htyy"]
 [ext_resource type="Script" path="res://addons/compass/example/player3d.gd" id="1_r7kle"]
@@ -6,6 +6,8 @@
 [ext_resource type="Material" uid="uid://eu6lh0fr601x" path="res://addons/compass/resources/compassbar.material" id="5_h3uew"]
 [ext_resource type="Texture2D" uid="uid://bg5fxjgjk8nfg" path="res://addons/compass/resources/compassbar.png" id="5_lbo08"]
 [ext_resource type="Script" path="res://addons/compass/entities/compassbar.gd" id="6_ikwdp"]
+[ext_resource type="Texture2D" uid="uid://d2gjnjq1vygis" path="res://addons/compass/resources/container2d.png" id="7_c6hu6"]
+[ext_resource type="Texture2D" uid="uid://cl0khbhy12on8" path="res://addons/compass/resources/needle2d.png" id="8_5xnsh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0s3kp"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -113,6 +115,13 @@ current = true
 transform = Transform3D(0.418069, 0.214492, 0.170914, -0.152295, 0.440696, -0.180537, -0.22809, 0.0988948, 0.433814, -0.535786, -0.426706, -0.762535)
 script = ExtResource("1_8htyy")
 parent = NodePath("../..")
+rotate_container = null
+
+[node name="Compass3D2" type="Node3D" parent="Player/Camera3D" node_paths=PackedStringArray("parent")]
+transform = Transform3D(0.375553, -0.251939, -0.213278, 0.180164, 0.427141, -0.187327, 0.27659, 0.0638513, 0.411608, 0.516918, -0.429985, -0.743154)
+script = ExtResource("1_8htyy")
+parent = NodePath("../..")
+rotate_container = true
 
 [node name="CenterContainer" type="CenterContainer" parent="Player"]
 anchors_preset = 5
@@ -143,11 +152,20 @@ parent = NodePath("../..")
 
 [node name="Compass2D" type="Node2D" parent="Player" node_paths=PackedStringArray("parent")]
 texture_filter = 1
-position = Vector2(998, 503)
+position = Vector2(125, 279)
 scale = Vector2(2, 2)
 script = ExtResource("4_trp6u")
 parent = NodePath("..")
 rotate_container = null
+
+[node name="Compass2D2" type="Node2D" parent="Player" node_paths=PackedStringArray("parent")]
+position = Vector2(1042, 279)
+scale = Vector2(2, 2)
+script = ExtResource("4_trp6u")
+parent = NodePath("..")
+custom_container_resource = ExtResource("7_c6hu6")
+custom_needle_resource = ExtResource("8_5xnsh")
+rotate_container = true
 
 [node name="Label" type="Label" parent="."]
 offset_left = 390.0
