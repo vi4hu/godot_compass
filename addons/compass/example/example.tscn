@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://nuvklwq21yyo"]
 
 [ext_resource type="Script" path="res://addons/compass/entities/compass3d.gd" id="1_8htyy"]
-[ext_resource type="Script" path="res://addons/compass/example/player.gd" id="1_r7kle"]
+[ext_resource type="Script" path="res://addons/compass/example/player3d.gd" id="1_r7kle"]
 [ext_resource type="Script" path="res://addons/compass/entities/compass2d.gd" id="4_trp6u"]
 [ext_resource type="Material" uid="uid://eu6lh0fr601x" path="res://addons/compass/resources/compassbar.material" id="5_h3uew"]
 [ext_resource type="Texture2D" uid="uid://bg5fxjgjk8nfg" path="res://addons/compass/resources/compassbar.png" id="5_lbo08"]
@@ -147,3 +147,11 @@ position = Vector2(998, 503)
 scale = Vector2(2, 2)
 script = ExtResource("4_trp6u")
 parent = NodePath("..")
+rotate_container = null
+
+[node name="Label" type="Label" parent="."]
+offset_left = 390.0
+offset_top = 101.0
+offset_right = 780.0
+offset_bottom = 124.0
+text = "Use AWSD to Move, Mouse to Look and ESC to Quit"

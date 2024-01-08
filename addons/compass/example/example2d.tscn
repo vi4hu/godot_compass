@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcfjmx2ny2mle"]
+[gd_scene load_steps=10 format=3 uid="uid://bcfjmx2ny2mle"]
 
-[ext_resource type="Script" path="res://addons/compass/example/player.gd" id="1_ptr3k"]
+[ext_resource type="Script" path="res://addons/compass/example/player2d.gd" id="1_my2v5"]
 [ext_resource type="Texture2D" uid="uid://dwfilxc0fnhmr" path="res://icon.svg" id="2_1oawq"]
 [ext_resource type="Script" path="res://addons/compass/entities/compass2d.gd" id="2_gaay4"]
+[ext_resource type="Texture2D" uid="uid://cl0khbhy12on8" path="res://addons/compass/resources/needle2d.png" id="3_dhren"]
 [ext_resource type="Material" uid="uid://eu6lh0fr601x" path="res://addons/compass/resources/compassbar.material" id="3_dthym"]
+[ext_resource type="Texture2D" uid="uid://d2gjnjq1vygis" path="res://addons/compass/resources/container2d.png" id="4_5wfv4"]
 [ext_resource type="Texture2D" uid="uid://bg5fxjgjk8nfg" path="res://addons/compass/resources/compassbar.png" id="4_nlw4q"]
 [ext_resource type="Script" path="res://addons/compass/entities/compassbar.gd" id="5_kmrv6"]
 
@@ -15,34 +17,45 @@ metadata/_edit_horizontal_guides_ = [341.0]
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(560, 336)
 up_direction = Vector2(1, 0)
-script = ExtResource("1_ptr3k")
+script = ExtResource("1_my2v5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CircleShape2D_g88fw")
 
 [node name="Polygon2D" type="Polygon2D" parent="CharacterBody2D"]
-color = Color(0.529412, 0.513726, 0.717647, 1)
-polygon = PackedVector2Array(2, -10, 0, -24, -2, -10, -10, 0, 0, 11, 10, 0)
+color = Color(0.556863, 0.643137, 0.694118, 1)
+antialiased = true
+polygon = PackedVector2Array(17, -9, 1, -24, -16, -9, -16, 7, -8, 4, -6, -3, 1, -7, 7, -3, 9, 4, 17, 7)
 
 [node name="Compass2D" type="Node2D" parent="." node_paths=PackedStringArray("parent")]
 position = Vector2(980, 405)
 scale = Vector2(2, 2)
 script = ExtResource("2_gaay4")
-north = 90
 mode = "2D"
 parent = NodePath("../CharacterBody2D")
+rotate_container = null
+
+[node name="Compass2D2" type="Node2D" parent="." node_paths=PackedStringArray("parent")]
+position = Vector2(980, 482)
+scale = Vector2(2, 2)
+script = ExtResource("2_gaay4")
+mode = "2D"
+parent = NodePath("../CharacterBody2D")
+custom_container_resource = ExtResource("4_5wfv4")
+custom_needle_resource = ExtResource("3_dhren")
+rotate_container = true
 
 [node name="Label" type="Label" parent="."]
 offset_left = 485.0
 offset_top = 223.0
 offset_right = 637.0
 offset_bottom = 249.0
-text = "Use Q or E to rotate"
+text = "Use AWSD to move"
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(-277, -271)
 color = Color(0.894118, 0, 0.164706, 1)
-polygon = PackedVector2Array(826, 335, 826, 348, 841, 348, 841, 335)
+polygon = PackedVector2Array(834, 335, 826, 348, 842, 348)
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 5
