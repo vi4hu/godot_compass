@@ -10,6 +10,7 @@ extends Node3D
 	set (value):
 		custom_needle_resource = custom_needle_resource_changed(value)
 @export_range(0.01, 0.5) var _lerp_speed: float = 0.1
+@export var rotate_container: bool = false
 
 var container_res = load("res://addons/compass/resources/container3d.mesh")
 var needle_res = load("res://addons/compass/resources/needle3d.mesh")
@@ -43,9 +44,12 @@ func _physics_process(delta) -> void:
 			print("WARNING: Parent Property for rotation doesn't have valid type, requires Vector3.")
 			return
 		var new_rot:float = parent.global_rotation.y - deg_to_rad(north)
-		if Vector3(0, -new_rot, 0) != needle.get_rotation():
-			needle.rotation.y = lerp_angle(needle.rotation.y, -new_rot, _lerp_speed)
-
+		if rotate_container:
+			if Vector3(0, -new_rot, 0) != container.get_rotation():
+				container.rotation.y = lerp_angle(container.rotation.y, -new_rot, _lerp_speed)
+		else:
+			if Vector3(0, -new_rot, 0) != needle.get_rotation():
+				needle.rotation.y = lerp_angle(needle.rotation.y, -new_rot, _lerp_speed)
 
 func custom_container_resource_changed(value: ArrayMesh) -> ArrayMesh:
 	"""Sets custom mesh for Compass3D container"""
