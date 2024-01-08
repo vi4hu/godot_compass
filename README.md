@@ -29,12 +29,12 @@ Property | Explanation | Default |
 
 | Shader Property | Explanation | Default |
 | --- | --- | --- |
-| North | North offset in radians (0, 2*PI) | `0.0` |
+| North | North offset in radians (0, 2*PI) | `0.0` (-Y for 2D, -Z for 3D) |
 
 ### Compass3D
 | Property | Explanation | Default |
 | --- | --- | --- |
-| North | Sets the north direction (-180, 180) | `0` |
+| North | Sets the north direction (-180, 180) | `0` (-Z)|
 | Parent | Rotating Node for calculation | None |
 | Custom Container Resource | change container mesh | [container3d.mesh][l1] |
 | Custom needle Resource | change needle mesh | [needle3d.mesh][l2] |
@@ -43,7 +43,7 @@ Property | Explanation | Default |
 ### Compass2D
 | Property | Explanation | Default |
 | --- | --- | --- |
-| North | Sets the north direction (-180, 180)| `0` |
+| North | Sets the north direction (-180, 180)| `0` (-Y for 2D, -Z for 3D) |
 | Mode | condition, which North Vector type to use ["3D", "2D"] | `"3D"` |
 | Parent | Rotating Node for calculation | None |
 | Parent Property For Current Direction | parent property defining current direction (Mode 2D only) | `global_rotation` |
