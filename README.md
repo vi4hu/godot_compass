@@ -4,14 +4,21 @@
 
 This project is a Godot Engine addon that adds new **CompassBar**, **Compass3D**, and **Compass2D** Nodes in Editor. These new nodes make easy and fast **Compass** creation possible for 3D and 2D games. It is available under the terms of the **MIT** License.
 
-
 ## Installation
 #### Method One:
-1.  Search "Godot Compass" in the AssetLib
-2.  Download and Install
+1. Search "Godot Compass" in the AssetLib
+2. Download and Install
+3. Enable: Projects Settings > Plugins > Status [Enable: True]
+4. Reload the project if you don't see the Compass Nodes
+
 #### Method Two:
 1. Clone this repo or download as zip from matching branch
 2. Copy/Move the `res://addons/compass` directory to your `res://addons` directory
+3. Do step 3 and 4 from Method One
+
+## Uninstallation
+- Make sure you have removed all the attached Compass Nodes from Scenes.
+- Delete the `res://addons/compass` directory from your project. Make sure to delete it using the Godot editor instead of your default file system program.
 
 ## Usage
 1. Search and add CompassBar/Compass3D/Compass2D using Ctrl-A or Add Node button
@@ -56,13 +63,18 @@ Property | Explanation | Default |
 | Lerp Speed | Smoothing (0.01, 0.5) | `0.1` |
 | Rotate Container | Check to rotate Container instead of Needle | `false` |
 
-### Example
-![media](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjgyNzBjNTM2M2ZjYzRjZDc3ZDIwNTRmYTQ4NDYzYjUwNjJjNGEzZCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/bvR3MilNYVsjbbTb7x/giphy.gif)
+
+### Examples
+
+Example 2D
+
+https://github.com/vi4hu/godot_compass/assets/66784253/2ef196f3-6a0d-4775-94ab-ea6cf020f270
+
+Example 3D
+
+https://github.com/vi4hu/godot_compass/assets/66784253/e9ac1bd1-ae2b-4809-89a9-d961f8568210
 
 Check out the given `example.tscn` for 3d games and `example2d.tscn` for 2d games in [example][l0].
-> use left/right arrow button to rotate camera for 3d example
-
-> use Q(left) and R(right) for 2d example
 
 [l0]: ./addons/compass/example
 [l1]: ./addons/compass/resources/container3d.mesh
