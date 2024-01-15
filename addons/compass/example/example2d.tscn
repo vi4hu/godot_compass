@@ -33,7 +33,6 @@ scale = Vector2(2, 2)
 script = ExtResource("2_gaay4")
 mode = "2D"
 parent = NodePath("../CharacterBody2D")
-rotate_container = null
 
 [node name="Compass2D2" type="Node2D" parent="." node_paths=PackedStringArray("parent")]
 position = Vector2(980, 482)
