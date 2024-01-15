@@ -1,4 +1,9 @@
 # Change Log
+
+## 0.6.0 - 09-01-2024
+- new variable, rotate container
+- better examples
+
 ## 0.5.1 - 22-12-2023
 - missing resources
 

@@ -115,7 +115,6 @@ current = true
 transform = Transform3D(0.418069, 0.214492, 0.170914, -0.152295, 0.440696, -0.180537, -0.22809, 0.0988948, 0.433814, -0.535786, -0.426706, -0.762535)
 script = ExtResource("1_8htyy")
 parent = NodePath("../..")
-rotate_container = null
 
 [node name="Compass3D2" type="Node3D" parent="Player/Camera3D" node_paths=PackedStringArray("parent")]
 transform = Transform3D(0.375553, -0.251939, -0.213278, 0.180164, 0.427141, -0.187327, 0.27659, 0.0638513, 0.411608, 0.516918, -0.429985, -0.743154)
@@ -156,7 +155,6 @@ position = Vector2(125, 279)
 scale = Vector2(2, 2)
 script = ExtResource("4_trp6u")
 parent = NodePath("..")
-rotate_container = null
 
 [node name="Compass2D2" type="Node2D" parent="Player" node_paths=PackedStringArray("parent")]
 position = Vector2(1042, 279)
