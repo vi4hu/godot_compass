@@ -11,12 +11,16 @@ config_version=5
 [application]
 
 config/name="compass"
-config/features=PackedStringArray("4.2")
+config/features=PackedStringArray("4.2", "C#")
 config/icon="res://icon.svg"
 
 [display]
 
 window/stretch/mode="viewport"
+
+[dotnet]
+
+project/assembly_name="compass"
 
 [editor]
 
