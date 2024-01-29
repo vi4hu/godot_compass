@@ -17,7 +17,8 @@ ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 sky_material = SubResource("ProceduralSkyMaterial_0s3kp")
 
 [sub_resource type="Environment" id="Environment_kog4p"]
-background_mode = 2
+background_mode = 1
+background_color = Color(0.658824, 0.658824, 0.658824, 1)
 sky = SubResource("Sky_6g6qb")
 tonemap_mode = 2
 glow_enabled = true
@@ -30,7 +31,7 @@ material = SubResource("StandardMaterial3D_estev")
 size = Vector3(20, 0.5, 20)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8vxuu"]
-albedo_color = Color(0.647059, 0.0862745, 0.176471, 1)
+albedo_color = Color(0.462745, 0.0470588, 0.113725, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n3v15"]
 albedo_color = Color(0.776471, 0.121569, 0.223529, 1)
@@ -170,4 +171,4 @@ offset_left = 390.0
 offset_top = 101.0
 offset_right = 780.0
 offset_bottom = 124.0
-text = "Use AWSD to Move, Mouse to Look and ESC to Quit"
+text = "Use Arrow Keys to Move, Mouse to Look and ESC to Quit"

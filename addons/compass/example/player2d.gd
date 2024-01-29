@@ -6,8 +6,8 @@ const JUMP_VELOCITY = -400.0
 
 func _physics_process(delta):
 	var direction = Vector2.ZERO
-	direction.x = Input.get_axis("A", "D")
-	direction.y = Input.get_axis("W", "S")
+	direction.x = Input.get_axis("ui_left", "ui_right")
+	direction.y = Input.get_axis("ui_up", "ui_down")
 	if direction:
 		velocity = direction.normalized() * SPEED
 		rotation_degrees = rad_to_deg(velocity.angle()) + 90
