@@ -4,17 +4,21 @@
 
 This project is a Godot Engine addon that adds new **CompassBar**, **Compass3D**, and **Compass2D** Nodes in Editor. These new nodes make easy and fast **Compass** creation possible for 3D and 2D games. It is available under the terms of the **MIT** License.
 
-
 ## Installation
 #### Method One:
-1.  Search "Godot Compass" in the AssetLib
-2.  Download and Install
+1. Search "Godot Compass" in the AssetLib
+2. Download and Install
 3. Enable: Projects Settings > Plugins > Status [Enable: True]
+4. Reload the project if you don't see the Compass Nodes
 
 #### Method Two:
 1. Clone this repo or download as zip from matching branch
 2. Copy/Move the `res://addons/compass` directory to your `res://addons` directory
-3. Enable: Projects Settings > Plugins > Status [Enable: True]
+3. Do step 3 and 4 from Method One
+
+## Uninstallation
+- Make sure you have removed all the attached Compass Nodes from Scenes.
+- Delete the `res://addons/compass` directory from your project. Make sure to delete it using the Godot editor instead of your default file system program.
 
 ## Usage
 1. Search and add CompassBar/Compass3D/Compass2D using Ctrl-A or Add Node button

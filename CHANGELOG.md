@@ -1,5 +1,8 @@
 # Change Log
 
+## 0.6.1 - 29-01-2024
+- build-in input mapping for example movement
+
 ## 0.6.0 - 09-01-2024
 - new variable, rotate container
 - better examples

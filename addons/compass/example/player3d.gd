@@ -18,7 +18,7 @@ func _ready():
 
 func _physics_process(delta):
 	velocity.y += -gravity * delta
-	var input = Input.get_vector("A", "D", "W", "S")
+	var input = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	var movement_dir = transform.basis * Vector3(input.x, 0, input.y)
 	velocity.x = movement_dir.x * speed
 	velocity.z = movement_dir.z * speed
