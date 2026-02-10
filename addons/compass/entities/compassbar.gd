@@ -24,7 +24,8 @@ func _init() -> void:
 
 func _ready() -> void:
 	if not parent:
-		print("WARNING: Parent(export property) is not set, CompassBar will not work.")
+		print("WARNING: Parent(export property) is not set in %s, CompassBar will not work." % name)
+		push_warning("Parent(export property) is not set, CompassBar will not work.")
 		set_physics_process(false)
 	_setup()
 
@@ -41,7 +42,7 @@ func _physics_process(delta) -> void:
 				"3D":
 					if not parent.get("rotation") is Vector3:
 						set_physics_process(false)
-						print("WARNING: Parent 'rotation' Property doesn't have valid type, requires Vector3.")
+						push_error("Parent 'rotation' Property doesn't have valid type, requires Vector3.")
 						return
 					var curr_val = material.get_shader_parameter("dir")
 					material.set_shader_parameter(
@@ -51,7 +52,7 @@ func _physics_process(delta) -> void:
 				"2D":
 					if not parent.get(parent_property_for_current_direction) is float:
 						set_physics_process(false)
-						print("WARNING: Parent Property for current direction doesn't have valid type, requires float for mode 2D.")
+						push_error("Parent Property for current direction doesn't have valid type, requires float for mode 2D.")
 						return
 					var curr_val = material.get_shader_parameter("dir")
 					material.set_shader_parameter(

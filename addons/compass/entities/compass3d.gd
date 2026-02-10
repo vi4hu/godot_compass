@@ -39,7 +39,8 @@ func _init() -> void:
 
 func _ready() -> void:
 	if not parent:
-		print("WARNING: Parent(export property) is not set, Compass3D will not work.")
+		print("WARNING: Parent(export property) is not set in %s, Compass3D will not work." % name)
+		push_warning("Parent(export property) is not set, Compass3D will not work.")
 		set_physics_process(false)
 
 
@@ -47,7 +48,7 @@ func _physics_process(delta) -> void:
 	if parent:
 		if not parent.global_rotation is Vector3:
 			set_physics_process(false)
-			print("WARNING: Parent Property for rotation doesn't have valid type, requires Vector3.")
+			push_error("Parent Property for rotation doesn't have valid type, requires Vector3.")
 			return
 		var new_rot:float = parent.global_rotation.y - deg_to_rad(north)
 		if rotate_container:
