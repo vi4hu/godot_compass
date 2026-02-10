@@ -158,7 +158,8 @@ script = ExtResource("4_trp6u")
 parent = NodePath("..")
 
 [node name="Compass2D2" type="Node2D" parent="Player" unique_id=1028712476 node_paths=PackedStringArray("parent")]
-position = Vector2(1042, 279)
+texture_filter = 1
+position = Vector2(1032, 279)
 scale = Vector2(2, 2)
 script = ExtResource("4_trp6u")
 parent = NodePath("..")

@@ -28,14 +28,16 @@ antialiased = true
 polygon = PackedVector2Array(17, -9, 1, -24, -16, -9, -16, 7, -8, 4, -6, -3, 1, -7, 7, -3, 9, 4, 17, 7)
 
 [node name="Compass2D" type="Node2D" parent="." unique_id=507383878 node_paths=PackedStringArray("parent")]
-position = Vector2(980, 405)
+texture_filter = 1
+position = Vector2(979, 404)
 scale = Vector2(2, 2)
 script = ExtResource("2_gaay4")
 mode = "2D"
 parent = NodePath("../CharacterBody2D")
 
 [node name="Compass2D2" type="Node2D" parent="." unique_id=1244621559 node_paths=PackedStringArray("parent")]
-position = Vector2(980, 482)
+texture_filter = 1
+position = Vector2(979, 481)
 scale = Vector2(2, 2)
 script = ExtResource("2_gaay4")
 mode = "2D"
