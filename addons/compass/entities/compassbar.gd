@@ -1,9 +1,15 @@
 @tool
 extends TextureRect
 
+## Rotating Node for calculation, generally a [b]CharacterBody[/b] class.
 @export var parent: Node
+## Condition, which North Vector type to use ["3D", "2D"]
+## [br]Select [code]"3D"[/code] if game is in 3d else [code]"2D"[/code].
 @export_enum("3D", "2D") var mode: String = "3D"
+## Parent property defining current direction, useful for [b]2D games[/b] as they utilies sprites.
+## [br][br]If you are not rotating the parent node, provide the parent_property_for_current_direction, for example save your current direction in a [code]var dir[/code] and type this in the property.
 @export var parent_property_for_current_direction: String = "rotation"
+## Rotation Smoothing, range [0.01, 0.5].
 @export_range(0.01, 0.5) var _lerp_speed: float = 0.1
 
 var default_bar_sprite = preload("res://addons/compass/resources/compassbar.png")
