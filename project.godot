@@ -11,19 +11,20 @@ config_version=5
 [application]
 
 config/name="compass"
-config/features=PackedStringArray("4.2")
+config/features=PackedStringArray("4.6")
 config/icon="res://icon.svg"
 
 [display]
 
+window/size/mode=2
 window/stretch/mode="viewport"
 
 [editor]
 
-movie_writer/mjpeg_quality=0.5
 movie_writer/movie_file="/home/rain/Videos/godot_movie.avi"
 movie_writer/disable_vsync=true
 movie_writer/fps=30
+movie_writer/mjpeg_quality=0.5
 
 [editor_plugins]
 

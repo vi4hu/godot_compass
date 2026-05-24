@@ -1,15 +1,21 @@
 @tool
 extends Node3D
 
+## Direction of In-Game North, default is [code]0[/code] (-Z).
 @export_range(-180, 180) var north: int = 0
+## Rotating Node for calculation, generally a [b]CharacterBody[/b] class.
 @export var parent: Node
+## Changes container mesh.
 @export var custom_container_resource : ArrayMesh :
 	set (value):
 		custom_container_resource = custom_container_resource_changed(value)
+## Changes needle mesh.
 @export var custom_needle_resource : ArrayMesh :
 	set (value):
 		custom_needle_resource = custom_needle_resource_changed(value)
+## Rotation Smoothing, range [0.01, 0.5].
 @export_range(0.01, 0.5) var _lerp_speed: float = 0.1
+## If [code]True[/code], Rotates Container instead of Needle.
 @export var rotate_container: bool = false
 
 var container_res = load("res://addons/compass/resources/container3d.mesh")
@@ -33,7 +39,8 @@ func _init() -> void:
 
 func _ready() -> void:
 	if not parent:
-		print("WARNING: Parent(export property) is not set, Compass3D will not work.")
+		print("WARNING: Parent(export property) is not set in %s, Compass3D will not work." % name)
+		push_warning("Parent(export property) is not set, Compass3D will not work.")
 		set_physics_process(false)
 
 
@@ -41,7 +48,7 @@ func _physics_process(delta) -> void:
 	if parent:
 		if not parent.global_rotation is Vector3:
 			set_physics_process(false)
-			print("WARNING: Parent Property for rotation doesn't have valid type, requires Vector3.")
+			push_error("Parent Property for rotation doesn't have valid type, requires Vector3.")
 			return
 		var new_rot:float = parent.global_rotation.y - deg_to_rad(north)
 		if rotate_container:
@@ -50,6 +57,7 @@ func _physics_process(delta) -> void:
 		else:
 			if Vector3(0, -new_rot, 0) != needle.get_rotation():
 				needle.rotation.y = lerp_angle(needle.rotation.y, -new_rot, _lerp_speed)
+
 
 func custom_container_resource_changed(value: ArrayMesh) -> ArrayMesh:
 	"""Sets custom mesh for Compass3D container"""

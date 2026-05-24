@@ -1,9 +1,15 @@
 @tool
 extends TextureRect
 
+## Rotating Node for calculation, generally a [b]CharacterBody[/b] class.
 @export var parent: Node
+## Condition, which North Vector type to use ["3D", "2D"]
+## [br]Select [code]"3D"[/code] if game is in 3d else [code]"2D"[/code].
 @export_enum("3D", "2D") var mode: String = "3D"
+## Parent property defining current direction, useful for [b]2D games[/b] as they utilies sprites.
+## [br][br]If you are not rotating the parent node, provide the parent_property_for_current_direction, for example save your current direction in a [code]var dir[/code] and type this in the property.
 @export var parent_property_for_current_direction: String = "rotation"
+## Rotation Smoothing, range [0.01, 0.5].
 @export_range(0.01, 0.5) var _lerp_speed: float = 0.1
 
 var default_bar_sprite = preload("res://addons/compass/resources/compassbar.png")
@@ -18,7 +24,8 @@ func _init() -> void:
 
 func _ready() -> void:
 	if not parent:
-		print("WARNING: Parent(export property) is not set, CompassBar will not work.")
+		print("WARNING: Parent(export property) is not set in %s, CompassBar will not work." % name)
+		push_warning("Parent(export property) is not set, CompassBar will not work.")
 		set_physics_process(false)
 	_setup()
 
@@ -35,7 +42,7 @@ func _physics_process(delta) -> void:
 				"3D":
 					if not parent.get("rotation") is Vector3:
 						set_physics_process(false)
-						print("WARNING: Parent 'rotation' Property doesn't have valid type, requires Vector3.")
+						push_error("Parent 'rotation' Property doesn't have valid type, requires Vector3.")
 						return
 					var curr_val = material.get_shader_parameter("dir")
 					material.set_shader_parameter(
@@ -45,7 +52,7 @@ func _physics_process(delta) -> void:
 				"2D":
 					if not parent.get(parent_property_for_current_direction) is float:
 						set_physics_process(false)
-						print("WARNING: Parent Property for current direction doesn't have valid type, requires float for mode 2D.")
+						push_error("Parent Property for current direction doesn't have valid type, requires float for mode 2D.")
 						return
 					var curr_val = material.get_shader_parameter("dir")
 					material.set_shader_parameter(

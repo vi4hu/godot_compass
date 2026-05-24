@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bquosolb43l3j"]
+[gd_scene format=3 uid="uid://bquosolb43l3j"]
 
-[ext_resource type="Script" path="res://addons/compass/entities/compass2d.gd" id="1_xpu0m"]
+[ext_resource type="Script" uid="uid://b4m2xllgw17ay" path="res://addons/compass/entities/compass2d.gd" id="1_xpu0m"]
 
-[node name="Compass2D" type="Node2D"]
+[node name="Compass2D" type="Node2D" unique_id=1292502866]
 texture_filter = 1
 script = ExtResource("1_xpu0m")
