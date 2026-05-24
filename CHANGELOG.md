@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.0.0 - 24-05-2026
+- updated for Godot 4.6.x
+- editor documentation
+
 ## 0.6.1 - 29-01-2024
 - build-in input mapping for example movement
 

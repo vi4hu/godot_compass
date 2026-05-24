@@ -20,6 +20,10 @@ This project is a Godot Engine addon that adds new **CompassBar**, **Compass3D**
 - Make sure you have removed all the attached Compass Nodes from Scenes.
 - Delete the `res://addons/compass` directory from your project. Make sure to delete it using the Godot editor instead of your default file system program.
 
+## Compatibility
+Older Godot Engine versions are available in their respective branches.
+Make sure to download or clone the branch matching your Godot version.
+
 ## Usage
 1. Search and add CompassBar/Compass3D/Compass2D using Ctrl-A or Add Node button
 2. Assign the Parent property for rotation calculation, **Parent** is the **rotating node**
@@ -63,7 +67,6 @@ Property | Explanation | Default |
 | Lerp Speed | Smoothing (0.01, 0.5) | `0.1` |
 | Rotate Container | Check to rotate Container instead of Needle | `false` |
 
-
 ### Examples
 
 Example 2D
@@ -76,8 +79,15 @@ https://github.com/vi4hu/godot_compass/assets/66784253/e9ac1bd1-ae2b-4809-89a9-d
 
 Check out the given `example.tscn` for 3d games and `example2d.tscn` for 2d games in [example][l0].
 
+## Support
+If this addon helped you, consider supporting the project:
+
+- [Ko-fi](l5)
+
+
 [l0]: ./addons/compass/example
 [l1]: ./addons/compass/resources/container3d.mesh
 [l2]: ./addons/compass/resources/needle3d.mesh
 [l3]: ./addons/compass/resources/container2d.png
 [l4]: ./addons/compass/resources/needle2d.png
+[l5]: https://ko-fi.com/vi4hu
